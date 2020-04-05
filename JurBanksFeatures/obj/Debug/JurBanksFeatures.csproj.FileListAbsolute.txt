@@ -1,0 +1,9 @@
+C:\Users\jur_1\source\repos\JurBanksFeatures\JurBanksFeatures\bin\Debug\JurBanksFeatures.dll
+C:\Users\jur_1\source\repos\JurBanksFeatures\JurBanksFeatures\bin\Debug\JurBanksFeatures.pdb
+C:\Users\jur_1\source\repos\JurBanksFeatures\JurBanksFeatures\obj\Debug\JurBanksFeatures.csprojAssemblyReference.cache
+C:\Users\jur_1\source\repos\JurBanksFeatures\JurBanksFeatures\obj\Debug\JurBanksFeatures.dll
+C:\Users\jur_1\source\repos\JurBanksFeatures\JurBanksFeatures\obj\Debug\JurBanksFeatures.pdb
+D:\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\JurBanksFeatures.dll
+D:\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\JurBanksFeatures.pdb
+D:\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\JurBanksSmallFeatures\bin\Win64_Shipping_Client\JurBanksFeatures.dll
+D:\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\JurBanksSmallFeatures\bin\Win64_Shipping_Client\JurBanksFeatures.pdb
