@@ -8,15 +8,19 @@ namespace JurBanksFeatures
 	{
 		public override float CalculateFinalSpeed(MobileParty mobileParty, float baseSpeed, StatExplainer explanation)
 		{
-			if(!mobileParty.IsLeaderless && mobileParty.Leader.IsPlayerCharacter)
+			float unChangedPartySpeed  = base.CalculateFinalSpeed(mobileParty, baseSpeed, explanation);
+			if (!mobileParty.IsLeaderless && mobileParty.Leader.IsPlayerCharacter)
 			{
 				if(FollowData.isFollowActive)
 				{
-					return FollowData.folowParty.LastCachedSpeed;
+					float followPartySpeed = FollowData.folowParty.LastCachedSpeed;
+					if (followPartySpeed > unChangedPartySpeed) return unChangedPartySpeed;
+					return followPartySpeed;
+
 				}
-				return base.CalculateFinalSpeed(mobileParty, baseSpeed, explanation);
+				return unChangedPartySpeed;
 			}
-			return base.CalculateFinalSpeed(mobileParty, baseSpeed, explanation);
+			return unChangedPartySpeed;
 		}
 	}
 }
