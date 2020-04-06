@@ -20,18 +20,11 @@ namespace JurBanksFeatures
         
         protected override void OnSubModuleLoad()
         {
-            Module.CurrentModule.AddInitialStateOption(new InitialStateOption("Message",
-             new TextObject("Message", null),
-             9990,
-             () => { InformationManager.DisplayMessage(new InformationMessage("Hello World!")); },
-             false));
-
         }
 
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
         {
             base.OnGameStart(game, gameStarterObject);
-
             AddModels(gameStarterObject as CampaignGameStarter);
         }
 

@@ -9,24 +9,26 @@ namespace JurBanksFeatures
 	{
 		public override float CalculateFinalSpeed(MobileParty mobileParty, float baseSpeed, StatExplainer explanation)
 		{
-			if(!mobileParty.IsLeaderless && mobileParty.Leader.IsPlayerCharacter)
+			float unChangedPartySpeed  = base.CalculateFinalSpeed(mobileParty, baseSpeed, explanation);
+			if (!mobileParty.IsLeaderless && mobileParty.Leader.IsPlayerCharacter)
 			{
 				if(FollowData.isFollowActive)
 				{
-                    if (CalculateDistanceToParty(mobileParty, FollowData.followParty) <= FollowData.slowdownThreshold)
-                    {
-                        return FollowData.followParty.LastCachedSpeed;
-                    }
-                    else
-                    {
-                        return base.CalculateFinalSpeed(mobileParty, baseSpeed, explanation);
-                    }
-                }
-				return base.CalculateFinalSpeed(mobileParty, baseSpeed, explanation);
+					float followPartySpeed = FollowData.followParty.LastCachedSpeed;
+					
+					if (CalculateDistanceToParty(mobileParty, FollowData.followParty) <= FollowData.slowdownThreshold)
+					{
+						return followPartySpeed;
+					}
+					else
+					{
+						return base.CalculateFinalSpeed(mobileParty, baseSpeed, explanation);
+					}
+				}
+				return unChangedPartySpeed;
 			}
-			return base.CalculateFinalSpeed(mobileParty, baseSpeed, explanation);
+			return unChangedPartySpeed;
 		}
-
 
         private float CalculateDistanceToParty(MobileParty heroParty, MobileParty targetParty)
         {
