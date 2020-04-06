@@ -56,7 +56,7 @@ namespace JurBanksFeatures
 				if (MobileParty.MainParty.TargetParty != null)
 				{
 					FollowData.isFollowActive = true;
-					FollowData.folowParty = MobileParty.MainParty.TargetParty;
+					FollowData.followParty = MobileParty.MainParty.TargetParty;
 					InformationManager.DisplayMessage(new InformationMessage("Following " + MobileParty.MainParty.TargetParty.Name));
 				}
 			}
@@ -64,9 +64,9 @@ namespace JurBanksFeatures
 
 		private void checkIfFollowPartyStillOnMap()
 		{
-			if (FollowData.folowParty != null)
+			if (FollowData.followParty != null)
 			{
-				if (FollowData.folowParty.IsWaiting()) FollowData.isFollowActive = false;
+				if (FollowData.followParty.IsWaiting()) FollowData.isFollowActive = false;
 			}
 		}
 	}
