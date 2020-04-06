@@ -12,11 +12,11 @@ namespace JurBanksFeatures
 			float unChangedPartySpeed  = base.CalculateFinalSpeed(mobileParty, baseSpeed, explanation);
 			if (!mobileParty.IsLeaderless && mobileParty.Leader.IsPlayerCharacter)
 			{
-				if(FollowData.isFollowActive)
+				if(FollowData.getIsFollowActive())
 				{
-					float followPartySpeed = FollowData.followParty.LastCachedSpeed;
+					float followPartySpeed = FollowData.getFollowParty().LastCachedSpeed;
 					
-					if (CalculateDistanceToParty(mobileParty, FollowData.followParty) <= FollowData.slowdownThreshold)
+					if (CalculateDistanceToParty(mobileParty, FollowData.getFollowParty()) <= FollowData.slowdownThreshold)
 					{
 						return followPartySpeed;
 					}

@@ -33,7 +33,6 @@ namespace JurBanksFeatures
             gameStarter.AddBehavior(new FollowPartyBehaviour());
             gameStarter.AddModel(new SetPlayerSpeed());
         }
-        
     }
 }
 

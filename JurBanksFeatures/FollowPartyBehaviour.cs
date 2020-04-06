@@ -25,48 +25,46 @@ namespace JurBanksFeatures
 		private void doOnTick(float obj)
 		{
 			checkForUserInput();
-			if (FollowData.isFollowActive) checkIfFollowPartyStillOnMap();
+			if (FollowData.getIsFollowActive()) checkIfFollowPartyStillOnMap();
 		}
 
 		private void checkForUserInput()
 		{
 			if (topScreen != null)
 			{
-				if (topScreen.DebugInput.IsKeyPressed(InputKey.RightMouseButton))
+				if (topScreen.DebugInput.IsKeyPressed(InputKey.F))
 				{
 					toggleFollowOnMouseClick();
 					Debug.WriteLine(" Mouse is down: ");
 				}
 				else if(topScreen.DebugInput.IsKeyPressed(InputKey.LeftMouseButton))
 				{
-					FollowData.isFollowActive = false;
+					if(FollowData.getIsFollowActive()) FollowData.stopFollowing();
 				}
 			}
 		}
 
 		private void toggleFollowOnMouseClick()
 		{
-			if (FollowData.isFollowActive)
+			if (FollowData.getIsFollowActive())
 			{
-				FollowData.isFollowActive = false;
-				InformationManager.DisplayMessage(new InformationMessage("Stoped following"));
+				FollowData.stopFollowing();
+				
 			}
 			else
 			{
 				if (MobileParty.MainParty.TargetParty != null)
 				{
-					FollowData.isFollowActive = true;
-					FollowData.followParty = MobileParty.MainParty.TargetParty;
-					InformationManager.DisplayMessage(new InformationMessage("Following " + MobileParty.MainParty.TargetParty.Name));
+					FollowData.startFollowing(MobileParty.MainParty.TargetParty);
 				}
 			}
 		}
 
 		private void checkIfFollowPartyStillOnMap()
 		{
-			if (FollowData.followParty != null)
+			if (FollowData.getFollowParty() != null)
 			{
-				if (FollowData.followParty.IsWaiting()) FollowData.isFollowActive = false;
+				if (FollowData.getFollowParty().IsWaiting()) FollowData.stopFollowing();
 			}
 		}
 	}
