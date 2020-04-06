@@ -1,5 +1,6 @@
 # BL_JurBanksSmallFeatures
-Bannerlord mod with small features
+Bannerlord mod that icludes small features
+
 CONTRIUBTOR: Australian/Shortbeard
 CREDITS: Zervox and Doombox
 
