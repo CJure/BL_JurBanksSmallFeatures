@@ -8,7 +8,7 @@ namespace JurBanksFeatures
 	{
 		static private  bool isFollowActive = false;
 		static private MobileParty followParty = null;
-		static public float slowdownThreshold = 1;
+		static public float slowdownThreshold = 2;
 
 		static public bool getIsFollowActive()
 		{
@@ -20,7 +20,6 @@ namespace JurBanksFeatures
 			followParty = party;
 			isFollowActive = true;
 			InformationManager.DisplayMessage(new InformationMessage("Started following party: " + followParty.Name));
-
 		}
 
 		static public void stopFollowing()

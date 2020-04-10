@@ -201,11 +201,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FollowData.cs" />
-    <Compile Include="FollowPartyBehaviour.cs" />
+    <Compile Include="BanditHideout.cs" />
+    <Compile Include="FollowParty\FollowData.cs" />
+    <Compile Include="FollowParty\FollowPartyBehaviour.cs" />
+    <Compile Include="HideoutMission.cs" />
     <Compile Include="MySubModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SetPlayerSpeed.cs" />
+    <Compile Include="FollowParty\SetPlayerSpeed.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

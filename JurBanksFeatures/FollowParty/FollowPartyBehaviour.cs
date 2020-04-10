@@ -13,13 +13,11 @@ namespace JurBanksFeatures
 
 		public override void RegisterEvents()
 		{
-			Debug.WriteLine("Register events");
 			CampaignEvents.TickEvent.AddNonSerializedListener(this, this.doOnTick);
 		}
 
 		public override void SyncData(IDataStore dataStore)
 		{
-
 		}
 
 		private void doOnTick(float obj)
@@ -35,7 +33,6 @@ namespace JurBanksFeatures
 				if (topScreen.DebugInput.IsKeyPressed(InputKey.F))
 				{
 					toggleFollowOnMouseClick();
-					Debug.WriteLine(" Mouse is down: ");
 				}
 				else if(topScreen.DebugInput.IsKeyPressed(InputKey.LeftMouseButton))
 				{
