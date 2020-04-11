@@ -51,9 +51,13 @@ namespace JurBanksFeatures
         {
             gameStarter.AddBehavior(new FollowPartyBehaviour());
             gameStarter.AddModel(new SetPlayerSpeed());
+            //gameStarter.AddModel(new HideoutMission());
+            gameStarter.AddBehavior(new HideoutMission());
+            //    gameStarter.AddModel(new HideoutMission());
         }
 
-/*        public override void OnMissionBehaviourInitialize(Mission mission)
+
+    /*  public override void OnMissionBehaviourInitialize(Mission mission)
         {
             //getAllHideouts();
 
@@ -64,13 +68,13 @@ namespace JurBanksFeatures
                 mission.AddMissionBehaviour(new HideoutMission());
             }
             base.OnMissionBehaviourInitialize(mission);  
-        }*/
+        }
 
 
         private bool checkIfBanditMission(string sceneName)
         {
             return sceneName.Contains("bandit");
-        }
+        }*/
     }
 }
 
