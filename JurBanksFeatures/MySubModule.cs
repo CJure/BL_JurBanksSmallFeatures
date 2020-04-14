@@ -12,8 +12,8 @@ namespace JurBanksFeatures
     //Credits for helping: Australian, Zervox and Doombox
     public class MySubModule : MBSubModuleBase
     {
-        bool enableFollowFeature = true;
-        bool enableHideoutFeature = true;
+        ModConfiguration options = ModConfiguration.Load();
+
 
         protected override void OnSubModuleLoad()
         {
@@ -33,17 +33,17 @@ namespace JurBanksFeatures
             var elements = new List<InquiryElement>();
 
             elements.Add(new InquiryElement(
-              nameof(enableFollowFeature),
-              enableFollowFeature ? "Disable follow party" : "Enable follow party",
+              nameof(options.enableFollowFeature),
+              options.enableFollowFeature ? "Disable follow party" : "Enable follow party",
               null
             ));
 
             elements.Add(new InquiryElement(
-              nameof(enableHideoutFeature),
-              enableHideoutFeature ? "Disable hideout feature" : "Enable hideout feature",
+              nameof(options.enableHideoutFeature),
+              options.enableHideoutFeature ? "Disable hideout feature" : "Enable hideout feature",
               null
             ));
-           
+
             InformationManager.ShowMultiSelectionInquiry(new MultiSelectionInquiryData(
               "Mod Options",
               "JurBankFeatures options",
@@ -56,15 +56,15 @@ namespace JurBanksFeatures
                   var selected = (string)list[0].Identifier;
                   switch (selected)
                   {
-                      case nameof(enableFollowFeature):
-                          enableFollowFeature = !enableFollowFeature;
-                          ShowMessage($"Follow feature: {(enableFollowFeature ? "Enabled" : "Disabled")}.");
-                          //Options.Save();
+                      case nameof(options.enableFollowFeature):
+                          options.enableFollowFeature = !options.enableFollowFeature;
+                          ShowMessage($"Follow feature: {(options.enableFollowFeature ? "Enabled" : "Disabled")}.");
+                          options.Save();
                           break;
-                      case nameof(enableHideoutFeature):
-                          enableHideoutFeature = !enableHideoutFeature;
-                          ShowMessage($"Hideout feature: {(enableHideoutFeature ? "Enabled" : "Disabled")}.");
-                          //Options.Save();
+                      case nameof(options.enableHideoutFeature):
+                          options.enableHideoutFeature = !options.enableHideoutFeature;
+                          ShowMessage($"Hideout feature: {(options.enableHideoutFeature ? "Enabled" : "Disabled")}.");
+                          options.Save();
                           break;
                       default:
                           throw new NotImplementedException(selected);
@@ -99,15 +99,15 @@ namespace JurBanksFeatures
 
         private void AddModels(CampaignGameStarter gameStarter)
         {
-            Debug.WriteLine("follow: " + enableFollowFeature + ", hideout: " + enableHideoutFeature);
-            if(enableFollowFeature)
+            Debug.WriteLine("follow: " + options.enableFollowFeature + ", hideout: " + options.enableHideoutFeature);
+            if(options.enableFollowFeature)
             {
                 gameStarter.AddBehavior(new FollowPartyBehaviour());
                 gameStarter.AddModel(new SetPlayerSpeed());
             }
-            if(enableHideoutFeature)
+            if(options.enableHideoutFeature)
             {
-                gameStarter.AddBehavior(new HideoutMission());
+                gameStarter.AddBehavior(new HideoutBaseBehaviour());
             }
             
             //gameStarter.AddModel(new HideoutMission());

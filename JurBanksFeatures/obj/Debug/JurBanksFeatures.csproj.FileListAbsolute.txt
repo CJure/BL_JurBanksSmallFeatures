@@ -7,3 +7,5 @@ D:\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\JurBanksFeatures.d
 D:\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\JurBanksFeatures.pdb
 D:\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\JurBanksSmallFeatures\bin\Win64_Shipping_Client\JurBanksFeatures.dll
 D:\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\JurBanksSmallFeatures\bin\Win64_Shipping_Client\JurBanksFeatures.pdb
+C:\Users\jur_1\source\repos\JurBanksFeatures\JurBanksFeatures\obj\Debug\JurBanksFeatures.csproj.CoreCompileInputs.cache
+C:\Users\jur_1\source\repos\JurBanksFeatures\JurBanksFeatures\obj\Debug\JurBanksFeatures.csproj.CopyComplete
