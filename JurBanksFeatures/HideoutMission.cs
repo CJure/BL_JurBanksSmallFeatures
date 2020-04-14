@@ -5,14 +5,19 @@ using System.Linq;
 using TaleWorlds.CampaignSystem;
 using System;
 using System.Collections.Generic;
+using TaleWorlds.CampaignSystem.SandBox.GameComponents;
 
 namespace JurBanksFeatures
 {
 	class HideoutMission : CampaignBehaviorBase
 	{
-		int numOfTroopNeeded = 9;
+		
 		public TroopRoster troopRosterRemovedTroops = new TroopRoster();
 		Boolean areTroopsRemoved = false;
+		DefaultTroopCountLimitModel limitModel = new DefaultTroopCountLimitModel();
+		int numOfTroopNeeded;
+
+
 		public override void RegisterEvents()
 		{
 			CampaignEvents.OnSettlementLeftEvent.AddNonSerializedListener(this, new Action<MobileParty, Settlement>(this.OnSettelmentLeft));
@@ -21,7 +26,7 @@ namespace JurBanksFeatures
 
 		private void OnSettelmentEntered(MobileParty party, Settlement settlement, Hero arg3)
 		{
-
+			numOfTroopNeeded = limitModel.GetHideoutBattlePlayerMaxTroopCount();
 			if (party != null && party.Leader != null)
 			{
 				if (!party.IsLeaderless && party.Leader.IsPlayerCharacter)
@@ -56,7 +61,6 @@ namespace JurBanksFeatures
 			TroopRoster troops = heroParty.MemberRoster;
 			troops.Add(troopRosterRemovedTroops);
 			troopRosterRemovedTroops = new TroopRoster();
-			numOfTroopNeeded = 9;
 			areTroopsRemoved = false;
 		}
 
