@@ -9,7 +9,7 @@ using TaleWorlds.CampaignSystem.SandBox.GameComponents;
 
 namespace JurBanksFeatures
 {
-	class HideoutMission : CampaignBehaviorBase
+	class HideoutBaseBehaviour : CampaignBehaviorBase
 	{
 		
 		public TroopRoster troopRosterRemovedTroops = new TroopRoster();
