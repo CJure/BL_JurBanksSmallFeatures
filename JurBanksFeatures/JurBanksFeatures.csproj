@@ -201,7 +201,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BanditHideout.cs" />
     <Compile Include="FollowParty\FollowData.cs" />
     <Compile Include="FollowParty\FollowPartyBehaviour.cs" />
     <Compile Include="HideoutMission.cs" />

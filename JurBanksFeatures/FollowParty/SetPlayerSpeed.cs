@@ -41,7 +41,7 @@ namespace JurBanksFeatures
         private float CalculateDistanceToParty(MobileParty heroParty, MobileParty targetParty)
         {
             float distanceToTarget = heroParty.Position2D.Distance(targetParty.Position2D);
-            System.Diagnostics.Debug.WriteLine("Distance to target: " + distanceToTarget); //A distance of "1" seems to be a good follow distance 
+            Debug.WriteLine("Distance to target: " + distanceToTarget); 
             return distanceToTarget;
         }
 	}
