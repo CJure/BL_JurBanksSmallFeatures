@@ -24,7 +24,7 @@ namespace JurBanksFeatures
 
 		static public void stopFollowing()
 		{
-			InformationManager.DisplayMessage(new InformationMessage("Stoped following party: " + followParty.Name));
+			InformationManager.DisplayMessage(new InformationMessage("Stopped following party: " + followParty.Name));
 			isFollowActive = false;
 		}
 
